@@ -1,18 +1,29 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { UsersComponent } from './users/users.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
   {
     path: 'home',
     title: 'Home page',
-    component: HomeComponent,
+    loadComponent: () => import('./home/home.component'),
   },
   {
     path: 'users',
     title: 'Users page',
-    component: UsersComponent,
+    loadComponent: () => import('./users/users.component'),
+  },
+  {
+    path: 'products',
+    title: 'Products page',
+    loadComponent: () => import('./products/products.component'),
+    children: [
+      {
+        path: 'list-products',
+        title: 'Products page',
+        loadComponent: () =>
+          import('./products/product-list/product-list.component'),
+      },
+    ],
   },
   {
     path: '',

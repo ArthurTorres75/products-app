@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-products',
   standalone: true,
   imports: [LayoutComponent],
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.scss',
+  templateUrl: './products.component.html',
+  styleUrl: './products.component.scss',
 })
-export default class UsersComponent {}
+export default class ProductsComponent {}

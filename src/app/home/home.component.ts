@@ -9,7 +9,7 @@ import { CardModule } from 'primeng/card';
   styleUrls: ['./home.component.scss'],
   imports: [LayoutComponent, CardModule],
 })
-export class HomeComponent implements OnInit {
+export default class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}

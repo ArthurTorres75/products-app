@@ -20,8 +20,14 @@ export class HeaderComponent implements OnInit {
         icon: 'pi pi-users',
         routerLink: '/users',
       },
+      {
+        label: 'Products',
+        icon: 'pi pi-shopping-cart',
+        routerLink: '/products',
+      },
     ];
     this.home = {
+      label: 'Home',
       icon: 'pi pi-home',
       routerLink: '/home',
     };
