@@ -14,14 +14,25 @@ export const routes: Routes = [
   },
   {
     path: 'products',
-    title: 'Products page',
     loadComponent: () => import('./products/products.component'),
     children: [
       {
-        path: 'list-products',
-        title: 'Products page',
+        path: '',
+        title: 'Products list page',
         loadComponent: () =>
           import('./products/product-list/product-list.component'),
+      },
+      {
+        path: 'create',
+        title: 'Create product page',
+        loadComponent: () =>
+          import('./products/product-create/product-create.component'),
+      },
+      {
+        path: 'update/:id',
+        title: 'Update product page',
+        loadComponent: () =>
+          import('./products/product-update/product-update.component'),
       },
     ],
   },
