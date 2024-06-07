@@ -115,10 +115,10 @@
           />
         </td>
         <td>
-          <!-- <p-tag
+          <p-tag
             [value]="product.inventoryStatus"
             [severity]="getSeverity(product.inventoryStatus)"
-          /> -->
+          />
         </td>
         <td>
           <p-button
@@ -159,7 +159,7 @@
       <img
         [src]="product.imageURL"
         [alt]="product.imageURL"
-        class="block m-auto pb-3"
+        class="block m-auto pb-3 w-40 h-40"
         *ngIf="product.imageURL"
       />
       <div class="field">
@@ -197,16 +197,16 @@
           [options]="statuses"
         >
           <ng-template pTemplate="selectedItem">
-            <!-- <p-tag
+            <p-tag
               [value]="product.inventoryStatus?.toUpperCase()"
               [severity]="getSeverity(product.inventoryStatus.toUpperCase())"
-            /> -->
+            />
           </ng-template>
           <ng-template let-option pTemplate="item">
-            <!-- <p-tag
+            <p-tag
               [value]="option.label"
               [severity]="getSeverity(option.label)"
-            /> -->
+            />
           </ng-template>
         </p-dropdown>
       </div>

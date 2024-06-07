@@ -83,9 +83,9 @@ export default class ProductListComponent implements OnInit {
       .subscribe((data) => (this.products = data));
 
     this.statuses = [
-      { label: 'INSTOCK', value: 'instock' },
-      { label: 'LOWSTOCK', value: 'lowstock' },
-      { label: 'OUTOFSTOCK', value: 'outofstock' },
+      { label: InventoryStatus.Instock, value: 'instock' },
+      { label: InventoryStatus.LowStock, value: 'lowstock' },
+      { label: InventoryStatus.OutOfStock, value: 'outofstock' },
     ];
   }
 
@@ -195,16 +195,16 @@ export default class ProductListComponent implements OnInit {
     return id;
   }
 
-  // getSeverity(status: string) {
-  //   switch (status) {
-  //     case 'INSTOCK':
-  //       return 'success';
-  //     case 'LOWSTOCK':
-  //       return 'warning';
-  //     case 'OUTOFSTOCK':
-  //       return 'danger';
-  //     default:
-  //       InventoryStatus.OutOfStock;
-  //   }
-  //}
+  getSeverity(status: string) {
+    switch (status) {
+      case 'INSTOCK':
+        return 'success';
+      case 'LOWSTOCK':
+        return 'warning';
+      case 'OUTOFSTOCK':
+        return 'danger';
+      default:
+        return 'danger';
+    }
+  }
 }
