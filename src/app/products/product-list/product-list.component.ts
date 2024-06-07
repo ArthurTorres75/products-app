@@ -204,7 +204,7 @@ export default class ProductListComponent implements OnInit {
       case 'OUTOFSTOCK':
         return 'danger';
       default:
-        return 'danger';
+        return undefined;
     }
   }
 }

@@ -52,16 +52,16 @@
     [showCurrentPageReport]="true"
   >
     <ng-template pTemplate="caption">
-      <div class="flex align-items-center justify-content-between">
+      <div class="flex items-center justify-between">
         <h5 class="m-0">Manage Products</h5>
         <span class="p-input-icon-left">
           <i class="pi pi-search"></i>
-          <!-- <input
+          <input
             pInputText
             type="text"
-            (input)="dt.filterGlobal($event.target.value, 'contains')"
+            (input)="dt.filterGlobal($event.target, 'contains')"
             placeholder="Search..."
-          /> -->
+          />
         </span>
       </div>
     </ng-template>
@@ -198,7 +198,7 @@
         >
           <ng-template pTemplate="selectedItem">
             <p-tag
-              [value]="product.inventoryStatus?.toUpperCase()"
+              [value]="product.inventoryStatus.toUpperCase()"
               [severity]="getSeverity(product.inventoryStatus.toUpperCase())"
             />
           </ng-template>
