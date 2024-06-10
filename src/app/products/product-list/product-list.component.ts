@@ -1,7 +1,8 @@
-// Libraries
+// Libraries Angular
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 // Services
 import { ProductsService } from '../../core/services/products.service';
@@ -74,7 +75,8 @@ export default class ProductListComponent implements OnInit {
   constructor(
     private productsService: ProductsService,
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -87,12 +89,6 @@ export default class ProductListComponent implements OnInit {
       { label: InventoryStatus.LowStock, value: 'lowstock' },
       { label: InventoryStatus.OutOfStock, value: 'outofstock' },
     ];
-  }
-
-  openNew() {
-    this.product = Product;
-    this.submitted = false;
-    this.productDialog = true;
   }
 
   deleteSelectedProducts() {
@@ -115,10 +111,7 @@ export default class ProductListComponent implements OnInit {
     });
   }
 
-  editProduct(product: IProduct) {
-    this.product = { ...product };
-    this.productDialog = true;
-  }
+  editProduct(product: IProduct) {}
 
   deleteProduct(product: IProduct) {
     this.confirmationService.confirm({
