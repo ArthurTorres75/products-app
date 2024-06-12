@@ -1,1 +1,145 @@
-<p>product-create works!</p>
+<form
+  [formGroup]="productForm"
+  (ngSubmit)="onSubmit()"
+  class="flex flex-row justify-center gap-3"
+>
+  <p-card class="card w-full">
+    <h3>Fill the form to create a product</h3>
+    <div class="flex flex-col gap-6">
+      <p-floatLabel>
+        <input
+          type="text"
+          pInputText
+          id="name"
+          formControlName="name"
+          class="w-full py-3"
+        />
+        <label for="name">Name</label>
+      </p-floatLabel>
+      <p-floatLabel>
+        <textarea
+          type="text"
+          pInputTextarea
+          rows="3"
+          cols="50"
+          id="description"
+          formControlName="description"
+          class="w-full py-3"
+        ></textarea>
+        <label for="description">Description</label>
+      </p-floatLabel>
+      <div class="flex flex-row gap-3">
+        <p-floatLabel class="w-full">
+          <p-dropdown
+            id="category"
+            [options]="categories"
+            [checkmark]="true"
+            [showClear]="true"
+            optionLabel="label"
+            formControlName="category"
+          />
+          <label for="category">Category</label>
+        </p-floatLabel>
+        <p-floatLabel class="w-full">
+          <p-dropdown
+            id="inventoryStatus"
+            [options]="statuses"
+            optionLabel="label"
+            (onChange)="setSeverity($event)"
+            formControlName="inventoryStatus"
+          >
+            <ng-template pTemplate="selectedItem">
+              <p-tag
+                [value]="selectedStatus.value.toUpperCase()"
+                [severity]="getSeverity(selectedStatus.value.toUpperCase())"
+              />
+            </ng-template>
+            <ng-template let-option pTemplate="item">
+              <p-tag
+                [value]="option.label"
+                [severity]="getSeverity(option.label)"
+              />
+            </ng-template>
+          </p-dropdown>
+          <label for="inventoryStatus" class="w-full">Inventory Status</label>
+        </p-floatLabel>
+
+        <p-floatLabel class="w-full">
+          <p-dropdown
+            id="rating"
+            [options]="rating"
+            [checkmark]="true"
+            [showClear]="true"
+            optionLabel="label"
+            formControlName="rating"
+          />
+          <label for="rating">rating</label>
+        </p-floatLabel>
+      </div>
+
+      <div class="flex flex-row gap-3">
+        <p-floatLabel class="w-full">
+          <input
+            type="number"
+            pInputText
+            id="stock"
+            formControlName="stock"
+            class="w-full py-3"
+          />
+          <label for="stock">Stock</label>
+        </p-floatLabel>
+        <p-floatLabel class="w-full">
+          <input
+            type="number"
+            pInputText
+            id="quantity"
+            formControlName="quantity"
+            class="w-full py-3"
+          />
+          <label for="quantity">Quantity</label>
+        </p-floatLabel>
+        <p-floatLabel class="w-full">
+          <input
+            type="number"
+            pInputText
+            id="price"
+            formControlName="price"
+            class="w-full py-3"
+          />
+          <label for="price">Price</label>
+        </p-floatLabel>
+      </div>
+      <p-floatLabel>
+        <input
+          type="url"
+          pInputText
+          id="imageURL"
+          formControlName="imageURL"
+          class="w-full py-3"
+        />
+        <label for="name">Image link</label>
+      </p-floatLabel>
+    </div>
+
+    {{ productForm.value | json }}
+    {{ productForm.valid }}
+    <ng-template pTemplate="footer">
+      <div class="flex gap-3 mt-1">
+        <p-button
+          label="Cancel"
+          severity="secondary"
+          class="w-full"
+          styleClass="w-full"
+        />
+        <p-button
+          [disabled]="productForm.invalid"
+          type="submit"
+          label="Save"
+          class="w-full"
+          styleClass="w-full"
+        />
+      </div>
+    </ng-template>
+  </p-card>
+  <p-card class="card w-full">right</p-card>
+</form>

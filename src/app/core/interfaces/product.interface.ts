@@ -14,6 +14,6 @@ export interface IProduct {
   price: number;
   imageURL: string;
   createdAt: string;
-  reviews: IReviews[];
+  reviews?: IReviews[];
   __v?: number;
 }

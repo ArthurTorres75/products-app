@@ -29,7 +29,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 // Constants
-import { Product } from '../../core/contants/product.constant';
+import { product } from '../../core/constants/product.constant';
 import { InventoryStatus } from '../../core/enums/inventory.enum';
 @Component({
   selector: 'app-product-list',
@@ -120,7 +120,7 @@ export default class ProductListComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.products = this.products.filter((val) => val._id !== product._id);
-        this.product = Product;
+        this.product = product;
         this.messageService.add({
           severity: 'success',
           summary: 'Successful',
@@ -162,7 +162,7 @@ export default class ProductListComponent implements OnInit {
 
       this.products = [...this.products];
       this.productDialog = false;
-      this.product = Product;
+      this.product = product;
     }
   }
 
